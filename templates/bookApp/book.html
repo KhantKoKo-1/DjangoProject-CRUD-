@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block context%}
+
+<h1>BookList</h1>
+
+
+<table class="table">
+
+    
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Writer Name</th>
+        <th scope="col">update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in bookList %}
+       
+      <tr>
+        <th scope="row">{{book.id}}</th>
+        <td>{{book.name}}</td>
+        <td>{{book.writer}}</td>
+        <td><a href ={% url 'updatebook' book.id %} class="btn btn-dark btn-sm">Update</a></td>
+        <td> <a href = {% url 'bookDelete' book.id %} class="btn btn-dark btn-sm">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    
+
+  </table>
+
+{% endblock context %}

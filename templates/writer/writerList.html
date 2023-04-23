@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block context%}
+
+<h1>WriterList</h1>
+
+
+<table class="table">
+
+    
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">SecondName</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for writer in writers%}
+       
+      <tr>
+        <th scope="row">{{writer.id}}</th>
+        <td>{{writer.firstName}}</td>
+        <td>{{writer.lastName}}</td>
+        
+        <td> <a href = {% url 'deletewriter' writer.id %} class="btn btn-dark btn-sm">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    
+
+  </table>
+
+{% endblock context %}

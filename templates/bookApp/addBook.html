@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block context %}
+<div class="alert alert-warning" role="alert">
+{{error}}
+</div>
+<form action="" method="post">
+{% csrf_token %}
+
+<div class="mb-3 row">
+  <label for="name" class="col-sm-2 col-form-label">Book Name :</label>
+  <div class="col-sm-5">
+    <input type="text" name="name" class="form-control" id="name" />
+  </div>
+</div>
+  
+  <div class="mb-3 row">
+    <label for="name" class="col-sm-2 col-form-label">Writer Name :</label>
+    <div class="col-sm-5">
+      <select class="form-select" aria-label="Default select example" 
+      name='writer_id'> 
+      <option selected>Open this select menu</option>
+      {% for writer in writers %}
+      <option value="{{writer.id}}">
+        {{writer}}</option>
+      {% endfor %}
+
+      </select>
+  <div class="text-center m-3">
+    
+    <input type="submit" class ="btn btn-success" value="addBook">
+  </div>
+
+ 
+
+</form>
+
+{% endblock context %}

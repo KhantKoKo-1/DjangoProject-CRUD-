@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block context %}
+<div class="alert alert-warning" role="alert">
+{{error}}
+</div>
+<form action="" method="post">
+{% csrf_token %}
+
+
+  <div class="form-floating">
+    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="FirstName">
+    <label for="firstName">FirstName</label>
+  </div>
+
+  <div class="form-floating">
+    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="lastName">
+    <label for="lastName">lastName</label>
+  </div>
+
+
+  <div class="text-center m-3">
+    
+    <input type="submit" class ="btn btn-success"  value="addBook">
+  
+</div>
+
+</form>
+
+
+{% endblock context %}
