@@ -7,7 +7,7 @@
 <form action="" method="post">
 {% csrf_token %}
 
-<div class="mb-3 row">
+{% comment %} <div class="mb-3 row">
   <label for="name" class="col-sm-2 col-form-label">Book Name :</label>
   <div class="col-sm-5">
     <input type="text" name="name" class="form-control" id="name" />
@@ -25,7 +25,8 @@
         {{writer}}</option>
       {% endfor %}
 
-      </select>
+      </select> {% endcomment %}
+      {{form}}
   <div class="text-center m-3">
     
     <input type="submit" class ="btn btn-success" value="addBook">

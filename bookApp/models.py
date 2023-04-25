@@ -8,17 +8,18 @@ class Users(models.Model):
 
     def __str__(self):
         return self.user_name
+
 class Writer(models.Model):
 
-    firstName =  models.CharField(max_length=100)
-    lastName  = models.CharField(max_length=100)      
+    firstName =  models.CharField(max_length=100,unique=True)
+    lastName  = models.CharField(max_length=100,unique=True)      
 
     def __str__(self):
         return self.firstName + ' ' +self.lastName
     
 class Book(models.Model):
     
-    name = models.CharField(max_length=100,null=False)
+    name = models.CharField(max_length=100,null=False,unique=True)
     writer =models.ForeignKey(Writer, on_delete = models.SET_NULL,null=True)
     
     def __str__(self):

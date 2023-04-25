@@ -14,6 +14,7 @@ path('addbook/',views.addForBook,name="addbook"),
 path('updatebook/<int:id>',views.updatebook,name='updatebook'),
 path('writerList/',views.writer,name='writerList'),
 path('addwriter/',views.addwriter,name='addwriter'),
-path('deletewriter/<int:id>',views.deletewriter,name='deletewriter')
+path('deletewriter/<int:id>',views.deletewriter,name='deletewriter'),
+path('logout/',views.logout,name='logout'),
 
 ]

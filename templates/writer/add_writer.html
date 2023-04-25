@@ -8,7 +8,7 @@
 {% csrf_token %}
 
 
-  <div class="form-floating">
+  {% comment %} <div class="form-floating">
     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="FirstName">
     <label for="firstName">FirstName</label>
   </div>
@@ -19,7 +19,11 @@
   </div>
 
 
-  <div class="text-center m-3">
+  < {% endcomment %}
+
+{{form}}
+
+<div class="m-3">
     
     <input type="submit" class ="btn btn-success"  value="addBook">
   

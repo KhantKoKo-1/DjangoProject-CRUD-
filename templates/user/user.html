@@ -1,4 +1,7 @@
-{% extends 'main.html' %} {% block context %}
+{% extends 'main.html' %} 
+
+
+{% block context %}
 <h1 class="text-center">User List</h1>
 
 <div class="row">
@@ -33,16 +36,11 @@
       {% csrf_token %}
       <div class="mb-3">
         <label for="name" class="form-label">User Name</label>
-        <input type="text" class="form-control" id="name" name="name" />
+        {{form.user_name}}
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input
-          name="password"
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-        />
+        {{form.password}}
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
