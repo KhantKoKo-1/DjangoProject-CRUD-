@@ -18,7 +18,7 @@
 
 <div class="container">
   <div class="col-6 m-auto mt-5">
-    <form action="{% url 'home' %}" method="post">
+    <form action="{% url 'loginPage' %}" method="post">
       <h2 class="text-center">{{login_error}}</h2>
 
       {% csrf_token %}

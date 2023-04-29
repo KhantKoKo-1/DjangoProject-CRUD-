@@ -13,6 +13,9 @@
         <th scope="col">id</th>
         <th scope="col">Book Name</th>
         <th scope="col">Writer Name</th>
+        <th scope="col">created Time</th>
+        <th scope="col">update Time</th>
+        <th scope="col">Image</th>
         <th scope="col">update</th>
         <th scope="col">Delete</th>
       </tr>
@@ -24,6 +27,16 @@
         <th scope="row">{{book.id}}</th>
         <td>{{book.name}}</td>
         <td>{{book.writer}}</td>
+        <td>{{book.created}}</td>
+        <td>{{book.updated}}</td>
+        {% if book.book_Img %}
+        <td><img src="{{ book.book_Img.url }}" class="img-responsive" style="width: 100px; float: left; margin-right: 50px;" />
+        </td>
+        {% endif %}
+        
+        {% comment %} <td><img src="{{ book.image }}" class="img-responsive" 
+          style="width: 100%; float: left; margin-right: 10px;" /></td> {% endcomment %}
+
         <td><a href ={% url 'updatebook' book.id %} class="btn btn-dark btn-sm">Update</a></td>
         <td> <a href = {% url 'bookDelete' book.id %} class="btn btn-dark btn-sm">Delete</a></td>
       </tr>

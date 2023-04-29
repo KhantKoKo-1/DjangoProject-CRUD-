@@ -4,7 +4,9 @@
 <div class="alert alert-warning" role="alert">
 {{error}}
 </div>
-<form action="" method="post">
+<div class="row">
+  <div class="col-6">
+<form action="" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 
 {% comment %} <div class="mb-3 row">
@@ -26,10 +28,12 @@
       {% endfor %}
 
       </select> {% endcomment %}
-      {{form}}
+      {{form.as_p}}
+    </div></div>
   <div class="text-center m-3">
     
     <input type="submit" class ="btn btn-success" value="addBook">
+    
   </div>
 
  

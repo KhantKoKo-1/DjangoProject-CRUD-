@@ -2,7 +2,12 @@
 
 
 {% block context %}
-<h1 class="text-center">User List</h1>
+
+
+
+<h1 class="m-5">User List</h1>
+
+
 
 <div class="row">
   <div class="col-6">
@@ -15,37 +20,51 @@
         </tr>
       </thead>
       <tbody>
-        {% for user in users %}
+        {% for user in usersForm %}
         <tr>
           <th scope="row">{{user.id}}</th>
-          <td>{{user.user_name}}</td>
+          <td>{{user.username}}</td>
           <td>
             <a
               class="btn btn-sm btn-danger"
               href="{% url 'userdelete' user.id %}"
               >Delete</a
             >
-          </td>
-        </tr>
+          </td> 
+            </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+  
   <div class="col-5">
-    <form action="" method="post">
-      {% csrf_token %}
-      <div class="mb-3">
-        <label for="name" class="form-label">User Name</label>
-        {{form.user_name}}
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        {{form.password}}
-      </div>
+   
+    <div class="login">
 
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+      {% if messages %}
+         <ul>
+             {% for message in messages %}
+             <li>{{ message }}</li>
+             {% endfor %}
+         </ul>
+     {% endif %}
+     
+
+     <h2>Create account</h2>
+
+      <form method="post" >
+          {% csrf_token %}
+          <table>
+             {{ form.as_table }}
+              <tr>
+                 <td></td>
+                 <td><input type="submit" name="submit" value="Register" /></td>
+             </tr>
+          </table>
+      </form>
   </div>
+
+
 </div>
 
 {% endblock context %}

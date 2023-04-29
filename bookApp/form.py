@@ -1,5 +1,6 @@
 from django import forms
-from .models import Writer,Book
+from .models import Writer,Book,FavBookCollection
+from django.forms.widgets import DateInput
 
 class UserForm(forms.Form):
 
@@ -13,7 +14,11 @@ class WriterForm(forms.ModelForm):
          
          model = Writer 
 
-         fields = ['firstName','lastName'] 
+         fields = ['firstName','lastName','dob'] 
+
+         widgets ={
+             'dob': DateInput(attrs={'type': 'date'})
+         }
 
 class BookForm(forms.ModelForm):
 
@@ -21,12 +26,25 @@ class BookForm(forms.ModelForm):
 
         model = Book   
 
-        fields = ['name','writer']    
+        fields = ['name','writer','book_Img']   
 
         widgets={
 
             'name': forms.TextInput(attrs={'class': 'form-control mb-3row'}),
-            'writer':forms.Select(attrs={'class': 'form-control'}),
-
+            'writer':forms.Select(attrs={'class': 'form-control', 'option':'sletcted'}),
+            # 'image':forms.ImageField(attrs={'name':'image'}),
+            
 
         }  
+
+class FavBookForm(forms.ModelForm):
+
+    class Meta:
+
+        model = FavBookCollection
+        fields='__all__'
+       
+        widgets={
+        'collect_name':forms.TextInput(attrs={'class':'form-control col-6'}),
+        'books':forms.SelectMultiple(attrs={'class':'form-select col-6'}),
+         }

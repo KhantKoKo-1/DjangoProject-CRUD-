@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block context %}
+{% comment %} <h1 class="text-center">Add Fav Book Collection</h1> {% endcomment %}
+
+<div class="row">
+  <div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Fav Name</th>
+          <th scope="col">Book Name</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for fav in favlist %}
+        <tr>
+          <th scope="row">{{fav.id}}</th>
+          <td>{{fav.fav_name}}</td>
+             {% for fav_name in fav.book_name.all %}
+          <td>{{fav_name}}</td>
+             {% endfor %}
+
+          <td>
+            <a class="btn btn-sm btn-danger" href="{% url 'fav_book_delete' fav.id %}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-5">
+    <form action="" method="post">
+      {% csrf_token %} {{form.as_p}}
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+{% endblock context %}
